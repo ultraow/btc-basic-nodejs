@@ -1,0 +1,10 @@
+{
+  "name": "btc-AI",
+  "description": "智能比特币交易程序",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "mongoose": "^4.4.10",
+    "socket.io-client": "^1.4.5"
+  }
+}
