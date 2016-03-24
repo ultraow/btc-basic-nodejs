@@ -1,4 +1,4 @@
-var db = require('./lib/db'),
+var db = require('./db'),
 	io = require('socket.io-client');
 
 var socket = io('https://websocket.btcc.com/');
