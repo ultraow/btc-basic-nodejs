@@ -1,5 +1,18 @@
-var db = require('./lib/db'),
-	io = require('socket.io-client');
+var fs = require("fs");
+var file = "btc.db";
+var exists = fs.existsSync(file);
+
+var sqlite3 = require("sqlite3").verbose();
+var db = new sqlite3.Database(file);
+
+db.serialize(function() {
+  if(!exists) {
+    db.run("CREATE TABLE Stuff (thing TEXT)");
+  }
+});
+
+
+var io = require('socket.io-client');
 
 var socket = io('https://websocket.btcc.com/');
 socket.emit('subscribe', 'marketdata_cnybtc');
@@ -19,4 +32,3 @@ socket.on('connect', function(){
 		console.log(data);
 	});
 });
-
