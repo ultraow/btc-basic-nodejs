@@ -11,11 +11,16 @@ function jiexi(data) {
     return cheerio.load(data);
 }
 
+<<<<<<< HEAD
 function getValue(url, key, value, last) {
+=======
+function getValue(url, key, value) {
+>>>>>>> 91068259502f3d60a38a2600cc7de800fbfb3db7
     try{
         needle.get(url, function(error, response) {
             if (!error && response.statusCode == 200) {
                 if(value != eval('response.body.' + key)) {
+<<<<<<< HEAD
                     if(value < eval('response.body.' + key) && last < eval('response.body.' + key)) {
                         BTC_last_max ++;
                         console.log("last money: " + eval('response.body.' + key) + " +" + BTC_last_max);
@@ -35,6 +40,11 @@ function getValue(url, key, value, last) {
                     BTC_last = eval('response.body.' + key);
                 }
                 getValue(url, key, eval('response.body.' + key), value);
+=======
+                    console.log(eval('response.body.' + key));
+                }
+                getValue(url, key, eval('response.body.' + key));
+>>>>>>> 91068259502f3d60a38a2600cc7de800fbfb3db7
             }
         });
     }catch(e){
@@ -42,7 +52,11 @@ function getValue(url, key, value, last) {
     }
 }
 
+<<<<<<< HEAD
 var BTC_last_max = 0;
 var BTC_last_min = 0;
 
 getValue('https://data.btcchina.com/data/ticker?market=btccny', 'ticker.last', 0, 0);
+=======
+getValue('https://data.btcchina.com/data/ticker?market=btccny', 'ticker.last', 0);
+>>>>>>> 91068259502f3d60a38a2600cc7de800fbfb3db7
